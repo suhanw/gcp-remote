@@ -5,7 +5,7 @@ const TopNav = () => {
 
 	return (
 		<nav className={style.topNav}>
-			<h3>This is TopNav from REMOTE</h3>
+			<h3>This is AEON TopNav</h3>
 		</nav>
 	);
 };
