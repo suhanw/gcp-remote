@@ -8,7 +8,7 @@ const webpack = require('webpack');
 const { ModuleFederationPlugin } = webpack.container;
 const sharedConfig = require('./webpack.shared.config.js');
 
-const port = 8081;
+const port = 8081; 
 
 const config = {
 	target: 'web',
