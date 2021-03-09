@@ -1,4 +1,4 @@
-# Basic React SSR App
+# Basic REMOTE App
 
 ## To run app locally: 
 1. Run `npm install`
