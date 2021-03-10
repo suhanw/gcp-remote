@@ -7,9 +7,7 @@ steps:
       args: ['run', 'build']
       env:
           - 'NODE_ENV=production'
-    - name: gcr.io/cloud-builders/gsutil # uploads the build files with Cloud Storage
+    - name: gcr.io/cloud-builders/gsutil # uploads the build files to REMOTE Cloud Storage
       args: ['-m', 'rsync', '-r', '-c', '-d', './build', 'gs://gcp-remote/build']
-    # - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk' # deploys server to App Engine
-    #   entrypoint: 'bash'
-    #   args: ['-c', 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy']
-    #   timeout: '1600s'
+    - name: gcr.io/cloud-builders/gsutil # disable caching on `remoteEntry.js`
+      args: ['setmeta', '-h', 'Cache-Control:no-store, max-age=0', 'gs://gcp-remote/build/client/scripts/remoteEntry.js']
