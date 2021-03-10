@@ -7,6 +7,7 @@ steps:
       args: ['run', 'build']
       env:
           - 'NODE_ENV=production'
+          - 'PARTNER=aeon'
     - name: gcr.io/cloud-builders/gsutil # uploads the build files to REMOTE Cloud Storage
       args: ['-m', 'rsync', '-r', '-c', '-d', './build', 'gs://aeon-remote/build']
     - name: gcr.io/cloud-builders/gsutil # disable caching on `remoteEntry.js`
