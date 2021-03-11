@@ -9,6 +9,7 @@ steps:
           - 'NODE_ENV=production'
           - 'PARTNER=aeon'
     - name: gcr.io/cloud-builders/gsutil # uploads the build files to REMOTE Cloud Storage
-      args: ['-m', 'rsync', '-r', '-c', '-d', './build', 'gs://aeon-remote/build']
+      args: ['-m', 'rsync', '-r', '-c', './build', 'gs://aeon-remote/build'] # don't delete old files
+      # args: ['-m', 'rsync', '-r', '-c', '-d', './build', 'gs://aeon-remote/build']
     # - name: gcr.io/cloud-builders/gsutil # disable caching on `remoteEntry.js`
     #   args: ['setmeta', '-h', 'Cache-Control:no-store, max-age=0', 'gs://aeon-remote/build/client/scripts/remoteEntry.js']
