@@ -33,7 +33,7 @@ const config = {
 		new ModuleFederationPlugin({
 			name: 'remote',
 			library: { type: 'var', name: 'remote' },
-			filename: 'scripts/remoteEntry.js', 
+			filename: `scripts/remoteEntry${process.env.NODE_ENV === 'production' ? '.[contenthash]' : ''}.js`, 
 			exposes: {
 				'./top-nav': './client/components/top-nav/index.js',
 			}, 
